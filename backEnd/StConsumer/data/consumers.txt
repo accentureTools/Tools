@@ -1,0 +1,43 @@
+create table GrupoEmpresarial(
+id serial primary key,
+matriz integer,
+filial varChar,
+sucursal varChar,
+status varChar);
+
+CREATE TABLE Consumer(
+    id serial primary key,
+    "GRUPOEMPRESARIALID" INTEGER,
+    "DOCUMENTO" INTEGER,
+    "NOME" VARCHAR,
+    "ATIVIDADEECONOMICA" VARCHAR,
+    "EMAIL" VARCHAR,
+    "TELEFONE" VARCHAR,
+    "STATUS" VARCHAR,
+    "RESPONSAVEL" VARCHAR,
+    "NATUREZA" VARCHAR,
+	foreign key (grupoEmpresarialId) references GrupoEmpresarial(id)
+);
+-----------------------------------------------------
+create table santandertools.grupoEmpresarial(
+    id serial primary key NOT NULL AUTO_INCREMENT,
+    matriz int,
+    filial varchar(255),
+    sucursal varchar(255),
+    status varchar(255),
+    PRIMARY KEY (id),
+);
+CREATE TABLE santandertools.consumers (
+    id serial primary key NOT NULL AUTO_INCREMENT,
+    grupoempresarialid int ,
+    documento int,
+    nome varchar(255),
+    atividadeeconomica varchar(255),
+    email varchar(255),
+    telefone varchar(255),
+    status varchar(255),
+    responsavel varchar(255),
+    natureza varchar(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (grupoempresarialid) REFERENCES santandertools.grupoEmpresarial(id)
+);
