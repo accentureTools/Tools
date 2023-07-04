@@ -6,9 +6,9 @@
     </thead>
     <tbody>
         <ng-container *ngIf="pagination; else WithoutPagination">
-            <tr *ngFor="let pageBodyItemsData of slicedPageListItems">
-                <td class="table__tableData" *ngFor="let pageBodyItem of pageBodyItemsData">
-                    {{pageBodyItem}}
+            <tr *ngFor="let bodyTableRow of slicedPageListItems">
+                <td class="table__tableData" *ngFor="let bodyTableItem of bodyTableRow">
+                    {{bodyTableItem}}
                 </td>
             </tr>
         </ng-container>
