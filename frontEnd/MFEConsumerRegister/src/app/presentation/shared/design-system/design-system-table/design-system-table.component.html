@@ -1,0 +1,39 @@
+<table>
+    <thead>
+        <th *ngFor="let headTableItem of tableHeadAndBody.head">
+            {{headTableItem}}
+        </th>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="pagination; else WithoutPagination">
+            <tr *ngFor="let pageBodyItemsData of slicedPageListItems">
+                <td class="table__tableData" *ngFor="let pageBodyItem of pageBodyItemsData">
+                    {{pageBodyItem}}
+                </td>
+            </tr>
+        </ng-container>
+        <ng-template #WithoutPagination>
+            <tr *ngFor="let bodyTableRow of tableHeadAndBody.body">
+                <td *ngFor="let bodyTableItem of bodyTableRow">
+                    {{bodyTableItem}}
+                </td>
+            </tr>
+        </ng-template>
+    </tbody>
+
+    <ng-container *ngIf="pagination">
+        <div class="pagination__numberContainer">
+            <div class="pagination__nextAndPreviousBTN" (click)="changeCurrentlyShowedPage(currentlyShowedPage -1); setCurrentPageItemsData()"><< Previous</div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <ng-container *ngFor="let pageNumber of arrayOfPageNumbers">
+                <div 
+                    class="pagination__paginationNumber" 
+                    [ngClass]="{'pagination__paginationNumber--selected': pageNumber === currentlyShowedPage}" 
+                    (click)="changeCurrentlyShowedPage(pageNumber); setCurrentPageItemsData()">
+                    {{pageNumber}}
+                </div>
+
+            </ng-container>
+            <div class="pagination__nextAndPreviousBTN" (click)="changeCurrentlyShowedPage(currentlyShowedPage +1); setCurrentPageItemsData()">Next >></div>
+        </div>
+    </ng-container>
+</table>
