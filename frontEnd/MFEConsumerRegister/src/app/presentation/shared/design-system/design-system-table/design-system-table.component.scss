@@ -1,6 +1,17 @@
+@use '../../../../../assets/styles/colors.scss' as colors;
+
 .table {
+    width: 100%;
     &__tableData {
-        text-align: center;
+        text-align: left;
+    }
+    &__thead {
+        background-color: colors.$santanderGreyTableHeader;
+        color: white;
+        th {
+            text-align: left;
+            padding: 10px;
+        }
     }
 }
 .pagination {   
@@ -12,13 +23,13 @@
         margin-right: 20px;      
         cursor: pointer;
         &--selected {
-            color: red;
+            color: colors.$santanderRed;
             text-decoration: underline;
         }
     }
     &__nextAndPreviousBTN {
         cursor: pointer;
-        color: red;
+        color: colors.$santanderRed;
     }
     &__tableBodyRegistersRow {
         display: flex;

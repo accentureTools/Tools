@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CrudConsumerComponent } from './crud-consumer.component';
 import {CrudConsumerRoutingModule} from './crud-consumer-routing.module';
 import { ConsumerRegisterTableModule } from '../../shared/components/consumer-register-table/consumer-register-table.module';
+import { MfeHeaderModule } from '../../shared/components/mfe-header/mfe-header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CrudConsumerRoutingModule,
-    ConsumerRegisterTableModule
+    ConsumerRegisterTableModule,
+    MfeHeaderModule
   ],
   declarations: [CrudConsumerComponent]
 })
