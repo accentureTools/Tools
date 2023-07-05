@@ -13,17 +13,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "CONSUMER")
-
-public class Consumer {
+public class Consumers {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @JsonProperty("_id")
     private Long id;
-	private Integer grupoEmpresarialId;
+	private Integer grupoempresarialid;
 	private Integer documento;
 	private String nome;
-	private String atividadeEconomica;
+	private String atividadeeconomica;
 	private String email;
 	private String telefone;
 	private String status;

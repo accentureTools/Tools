@@ -12,8 +12,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
+@Entity
 public class GrupoEmpresarial{
-	private Integer id;
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @JsonProperty("_id")
+    private Long id;
 	private Integer matriz;
 	private String filial;
 	private String sucursal;
