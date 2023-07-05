@@ -41,3 +41,213 @@ CREATE TABLE santandertools.consumers (
     PRIMARY KEY (id),
     FOREIGN KEY (grupoempresarialid) REFERENCES santandertools.grupoEmpresarial(id)
 );
+
+------------------add Marcelo Reis--------------------------------
+create table grupo_empresarial(
+id_grupo serial primary key,
+matriz varchar(50),
+filial varchar(50),
+sucursal varchar(50),
+status varchar(50)
+)
+
+INSERT INTO GRUPO_EMPRESARIAL
+(MATRIZ, FILIAL, SUCURSAL, STATUS)
+ VALUES
+('GROUPO HONDA', 'HONRA', 'RJ', 'PROVISIONADO')
+
+INSERT INTO GRUPO_EMPRESARIAL
+(MATRIZ, FILIAL, SUCURSAL, STATUS)
+ VALUES
+('BANCO ITAU', 'ITAU', 'SP', 'EM ONBOARDING')
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE CONSUMER(
+ID SERIAL PRIMARY KEY,
+grupoEmpresarialId INTEGER,
+DOCUMENTO VARCHAR,
+NOME VARCHAR,
+ATIVIDADEECONOMICA VARCHAR,
+EMAIL VARCHAR,
+TELEFONE VARCHAR,
+STATUS VARCHAR,
+RESPONSAVEL VARCHAR,
+NATUREZA VARCHAR,
+FOREIGN KEY (ID_GRUPO_EMPRESARIAL) REFERENCES GRUPO_EMPRESARIAL(ID_GRUPO)
+)
+
+INSERT INTO CONSUMIDOR
+(ID_GRUPO_EMPRESARIAL, DOCUMENTO, NOME, ATIVIDADE_ECONOMICA, EMAIL, TELEFONE, STATUS, RESPONSAVEL, NATUREZA)
+VALUES
+('1', 'CONTRATO HONDA ', 'HONDA', 'FINANCEIRA', 'HONDA@HONDA.COM', '1199999999', 'VALIDADO', 'MARIA', 'SERVICOS')
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE USERS_CONSUMIDOR(
+ ID_USER_CONSUMIDOR SERIAL PRIMARY KEY,
+ ID_CONSUMIDOR INTEGER,
+ NOME VARCHAR,
+FOREIGN KEY (ID_CONSUMIDOR) REFERENCES CONSUMIDOR(ID_CONSUMIDOR)
+)
+
+INSERT INTO USERS_CONSUMIDOR
+(ID_CONSUMIDOR, NOME)
+VALUES
+('2', 'PEDRO')
+
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE USERS_PERFIL_ACESSO(
+ ID_PERFIL SERIAL PRIMARY KEY,
+ NOME VARCHAR
+)
+
+INSERT INTO USERS_PERFIL_ACESSO
+(NOME)
+VALUES
+('MARCELO')
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE USERS_FUNC(
+ ID_USER INTEGER,
+ ID_FUNCIONALIDADE INTEGER,
+ ID_PERFIL INTEGER,
+
+ FOREIGN KEY (ID_USER) REFERENCES USERS_CONSUMIDOR(ID_USER_CONSUMIDOR),
+ FOREIGN KEY (ID_FUNCIONALIDADE) REFERENCES FUNCIONALIDADE(ID_FUNCIONALIDADE),
+ FOREIGN KEY (ID_PERFIL) REFERENCES USERS_PERFIL_ACESSO (ID_PERFIL)
+
+)
+
+CREATE TABLE PRODUTO(
+ID_PRODUTO SERIAL PRIMARY KEY,
+NOME VARCHAR,
+DESCRICAO VARCHAR,
+STATUS VARCHAR,
+IMAGEM VARCHAR,
+VERSAO VARCHAR,
+CATEGORIA VARCHAR
+
+)
+
+INSERT INTO PRODUTO
+(NOME, VERSAO, CATEGORIA)
+VALUES
+('OCR',  '2.0', 'X')
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE FUNCIONALIDADE(
+ ID_FUNCIONALIDADE SERIAL PRIMARY KEY,
+ ID_PRODUTO INTEGER,
+ NOME VARCHAR,
+
+FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTO(ID_PRODUTO)
+
+)
+
+INSERT INTO FUNCIONALIDADE
+(NOME, ID_PRODUTO)
+VALUES
+('ASSINATURA DIGITAL', '1')
+
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE TENANT_FUNC(
+ID_TENANT INTEGER,
+ID_FUNCIONALIDADE INTEGER,
+
+FOREIGN KEY (ID_TENANT) REFERENCES TENANT(ID_TENANT),
+FOREIGN KEY (ID_FUNCIONALIDADE) REFERENCES FUNCIONALIDADE(ID_FUNCIONALIDADE)
+
+)
+
+--------------------------------------------------------------------------------------------------
+
+CREATE TABLE TENANT(
+ID_TENANT SERIAL PRIMARY KEY,
+ID_CONSUMIDOR INTEGER,
+ID_PLANO INTEGER,
+TIER VARCHAR,
+STATUS VARCHAR,
+USERPOOLID VARCHAR,
+APIKEY VARCHAR,
+APPCLIENTID VARCHAR,
+DEFICATEDTENANCY BOOLEAN,
+APIGATEWAYURL VARCHAR,
+
+FOREIGN KEY (ID_CONSUMIDOR) REFERENCES CONSUMER(ID),
+FOREIGN KEY (ID_PLANO) REFERENCES PLANO(ID_PLANO)
+
+)
+
+--------------------------------------------------------------------------------------------------
+
+CREATE TABLE EVENTOS(
+ID_EVENTOS BINARY(16),
+ID_TENANT BINARY(16),
+ID_USUARIO INTEGER,
+ID_PRODUTO INTEGER,
+ID_FUNCIONALIDADE INTEGER,
+DATA TIMESTAMP,
+TIPO VARCHAR,
+DADO VARCHAR,
+
+FOREIGN KEY (ID_TENANT) REFERENCES TENANT(ID_TENANT),
+FOREIGN KEY (ID_USUARIO) REFERENCES CONSUMER(ID),
+FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTO(PRODUTO),
+FOREIGN KEY (ID_FUNCIONALIDADE) REFERENCES FUNCIONALIDADE(ID_FUNCIONALIDADE),
+
+)
+
+--------------------------------------------------------------------------------------------------
+
+
+create table provisionamento(
+id_provisionamento binary(16),
+id_tenant binary(16),
+status varchar,
+release varchar,
+codeCommitid varchar,
+stackname varchar,
+
+FOREIGN KEY (ID_TENANT) REFERENCES TENANT(ID_TENANT)
+
+)
+
+
+--------------------------------------------------------------------------------------------------
+
+create table onbording(
+id_onbording binary(16),
+id_consumidor binary(16),
+status varchar,
+id_plano integer,
+id_tenant binary(16),
+data_inicio timestamp,
+id_produto integer,
+
+FOREIGN KEY (ID_USUARIO) REFERENCES CONSUMER(ID),
+FOREIGN KEY (ID_PLANO) REFERENCES PLANO(ID_PLANO),
+FOREIGN KEY (ID_TENANT) REFERENCES TENANT(ID_TENANT),
+FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTO(PRODUTO),
+
+
+)
+
+--------------------------------------------------------------------------------------------------
+
+create table plano(
+id_plano serial primary key,
+nome varchar,
+descricao varchar,
+valor decimal,
+data_inicio timestamp,
+data_fim timestamp
+
+)
+
