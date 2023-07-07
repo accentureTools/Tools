@@ -1,13 +1,13 @@
 @use '../../../../../assets/styles/colors.scss' as colors;
 
 .header { 
-    padding: 20px;    
+    padding: 20px 20px 0px 20px;   
     margin-top: 20px;
     margin-bottom: 50px;
-    background-color: colors.$santanderRed;
+    background-color: white;
     &__title {
-        font-size: 25px;
+        font-size: 36px;
         font-weight: bold;
-        color: white;   
+        color: colors.$santanderGreyFont;  
     } 
 }

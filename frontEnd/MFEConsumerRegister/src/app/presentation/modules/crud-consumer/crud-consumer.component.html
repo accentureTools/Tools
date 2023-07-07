@@ -1,5 +1,13 @@
-<app-mfe-header
-    [headerTitle]="mfeHeaderTitle"
-></app-mfe-header>
+<div class="headerCrudConsumerContainer">
+    <app-mfe-header
+        class="headerCrudConsumerContainer__headerTitle"
+        [headerTitle]="mfeHeaderTitle"
+    ></app-mfe-header>
+    <app-design-system-button 
+        class="headerCrudConsumerContainer__btnIncludeOnConsumer" 
+        [label]="'Incluir'"
+        ngDefaultControl    
+    ></app-design-system-button>
+</div>
 <app-consumer-register-table-filter></app-consumer-register-table-filter>
 <app-consumer-register-table></app-consumer-register-table>

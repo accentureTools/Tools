@@ -2,12 +2,23 @@
 <div class="consumerFilter">
     Filtrar por 
     <app-design-system-form-select 
+        class="consumerFilter__businessGroupFilter"
+        [placeholder]="'Grupo Empresa'"
         [formControl]="formGroup.controls.businessGroupSelectField"
         [options]="['teste1', 'teste2']"
         ngDefaultControl
-    >
-    </app-design-system-form-select>
-    <button type="submit">Filtrar</button>
+    ></app-design-system-form-select >
+    <app-design-system-form-input 
+        class="consumerFilter__filterInput"
+        [placeholder]="'Filtro...'"
+        [formControl]="formGroup.controls.filterInputField" 
+        ngDefaultControl
+    ></app-design-system-form-input>
+    <app-design-system-button 
+        class="consumerFilter__btnSubmit" 
+        [type]="'submit'" 
+        [label]="'Filtrar'"
+    ></app-design-system-button>
 </div>
 
 </form>

@@ -26,6 +26,9 @@ export class DesignSystemFormSelectComponent {
   public set options(options: Array<string>) {
     this.__options = options;
   }
+  
+  @Input()
+  public placeholder: string = '';
 
   public get options() {
     return this.__options;

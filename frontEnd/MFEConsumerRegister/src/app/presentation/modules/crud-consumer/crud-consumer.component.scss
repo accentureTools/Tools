@@ -1,4 +1,19 @@
 :host {
-    padding: 10px;
+    padding: 0 10px;
     display: block;
+}
+.headerCrudConsumerContainer {
+    position: relative;
+    display: flex;
+    &__headerTitle {
+        width: 100%;
+        position: relative;
+    }
+    &__btnIncludeOnConsumer {
+        position: absolute;
+        width: 150px;
+        display: grid;
+        margin-left: 86.4%;
+        margin-top: 46px;
+    }
 }

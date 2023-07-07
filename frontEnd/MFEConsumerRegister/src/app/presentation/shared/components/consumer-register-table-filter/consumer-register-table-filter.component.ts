@@ -10,6 +10,7 @@ export class ConsumerRegisterTableFilterComponent {
 
   public formGroup = this.formBuilder.group({
     businessGroupSelectField: this.formBuilder.control(''),
+    filterInputField:  this.formBuilder.control('')
   })
 
   constructor(private formBuilder: FormBuilder) {}
