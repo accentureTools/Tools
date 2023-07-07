@@ -4,13 +4,15 @@ import { CrudConsumerComponent } from './crud-consumer.component';
 import {CrudConsumerRoutingModule} from './crud-consumer-routing.module';
 import { ConsumerRegisterTableModule } from '../../shared/components/consumer-register-table/consumer-register-table.module';
 import { MfeHeaderModule } from '../../shared/components/mfe-header/mfe-header.module';
+import { ConsumerRegisterTableFilterModule } from '../../shared/components/consumer-register-table-filter/consumer-register-table-filter.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CrudConsumerRoutingModule,
     ConsumerRegisterTableModule,
-    MfeHeaderModule
+    ConsumerRegisterTableFilterModule,
+    MfeHeaderModule,
   ],
   declarations: [CrudConsumerComponent]
 })

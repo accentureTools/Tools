@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" (ngSubmit)="submitFilterForm()">
+<div class="consumerFilter">
+    Filtrar por 
+    <app-design-system-form-select 
+        [formControl]="formGroup.controls.businessGroupSelectField"
+        [options]="['teste1', 'teste2']"
+        ngDefaultControl
+    >
+    </app-design-system-form-select>
+    <button type="submit">Filtrar</button>
+</div>
+
+</form>
