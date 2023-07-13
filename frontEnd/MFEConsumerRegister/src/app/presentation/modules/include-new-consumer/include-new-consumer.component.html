@@ -8,6 +8,7 @@
         [label]="'Voltar'"
         [inverseBTN]="true"
         [size]="'sm'"
+        (click)="backToMainMFEConsumerPage()"
         ngDefaultControl    
     ></app-design-system-button>
 </div>
@@ -46,11 +47,11 @@
     <app-design-system-textarea [label]="'Observação (opcional)'"></app-design-system-textarea>
 
     <app-design-system-button
-    class="bodyIncludeConsumerContainer__saveFormBTN"
-    [label]="'Salvar'"
-    [size]="'l'"
-    ngDefaultControl    
-></app-design-system-button>
+        class="bodyIncludeConsumerContainer__saveFormBTN"
+        [label]="'Salvar'"
+        [size]="'l'"
+        ngDefaultControl 
+    ></app-design-system-button>
   
 </div>
 

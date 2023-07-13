@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { environment } from 'src/environment/environment';
 
 const routes: Routes = [
   {
-    path: 'mfeConsumer',
+    path: environment.routerPaths.mfeConsumerMain,
     loadChildren: () => import('./presentation/modules/crud-consumer/crud-consumer.module').then((module) =>  module.CrudConsumerModule)
   },
   {
-    path: 'includeConsumer',
+    path: environment.routerPaths.includeConsumer,
     loadChildren: () => import('./presentation/modules/include-new-consumer/include-new-consumer.module').then((module) =>  module.IncludeNewConsumerModule)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'mfeConsumer'
+    redirectTo: environment.routerPaths.mfeConsumerMain
   }
 ];
 

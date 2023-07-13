@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MFEHeaderTitlesEnum } from '../../shared/enums/mfe-header-titles.enum';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-include-new-consumer',
@@ -17,6 +19,11 @@ export class IncludeNewConsumerComponent {
   })
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ){}
+
+  public backToMainMFEConsumerPage() {
+    this.router.navigate([environment.routerPaths.mfeConsumerMain]);
+  }
 }
