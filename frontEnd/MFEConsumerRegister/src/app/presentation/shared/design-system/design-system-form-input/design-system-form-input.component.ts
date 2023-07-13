@@ -10,6 +10,9 @@ export class DesignSystemFormInputComponent {
   private __formControl: FormControl  = new FormControl('');
 
   @Input()
+  public label: string = '';
+
+  @Input()
   public set formControl(formControl: FormControl) {
     this.__formControl = formControl;
   };

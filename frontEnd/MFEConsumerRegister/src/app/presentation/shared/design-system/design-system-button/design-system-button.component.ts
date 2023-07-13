@@ -13,7 +13,10 @@ export class DesignSystemButtonComponent  implements OnInit{
   public type: string = '';
 
   @Input()
-  public size: 'sm' | 'l' | 'xl' = 'l';
+  public size: 'sm' | 'md' | 'l' | 'xl' = 'l';
+
+  @Input()
+  public inverseBTN: boolean = false;
 
   constructor(public elementRef: ElementRef) {}
 
@@ -21,7 +24,7 @@ export class DesignSystemButtonComponent  implements OnInit{
       this.setBTNElementSize(this.size);
   }
 
-  public setBTNElementSize(size: 'sm' | 'l' | 'xl') {
+  public setBTNElementSize(size: 'sm'  | 'md' | 'l' | 'xl') {
     this.removeAllBTNSizeClass();
     this.elementRef.nativeElement.classList.add(size);
   }

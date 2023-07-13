@@ -1,0 +1,9 @@
+textarea {
+    width: 100%;
+}
+.dsTextArea {
+    &__label{
+        display: block;
+        margin-bottom: 8px;    
+    }
+}

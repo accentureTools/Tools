@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SelectControlValueAccessor } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -29,6 +28,9 @@ export class DesignSystemFormSelectComponent {
   
   @Input()
   public placeholder: string = '';
+
+  @Input()
+  public label: string = '';
 
   public get options() {
     return this.__options;

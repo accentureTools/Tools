@@ -1,6 +1,9 @@
-<select class="selectField" [ngClass]="{'selectField--placeholderGreyColor': formControl.value === ''}" [formControl]="formControl">
+<div class="selectField__container">
+<label class="selectField__label">{{label}}</label>
+<select class="selectField__select" [ngClass]="{'selectField--placeholderGreyColor': formControl.value === ''}" [formControl]="formControl">
     <option value="" disabled selected>{{placeholder}}</option>
     <ng-container *ngFor="let optionItem of options">
         <option [value]="optionItem">{{optionItem}}</option>  
     </ng-container>      
 </select>
+</div>

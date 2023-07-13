@@ -1,3 +1,10 @@
 .dsInput {
     padding: 8px;
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        margin-bottom: 8px;
+    }
 }

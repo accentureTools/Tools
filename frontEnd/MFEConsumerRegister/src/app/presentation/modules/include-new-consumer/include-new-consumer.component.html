@@ -1,0 +1,56 @@
+<div class="headerIncludeConsumerContainer">
+    <app-mfe-header
+        class="headerIncludeConsumerContainer__headerTitle"
+        [headerTitle]="mfeHeaderTitle"
+    ></app-mfe-header>
+    <app-design-system-button 
+        class="headerIncludeConsumerContainer__btnReturnToCrudConsumer" 
+        [label]="'Voltar'"
+        [inverseBTN]="true"
+        [size]="'sm'"
+        ngDefaultControl    
+    ></app-design-system-button>
+</div>
+
+<app-design-system-subtitle-banner [bannerText]="'Dados Principais'"></app-design-system-subtitle-banner>
+
+<div class="bodyIncludeConsumerContainer">
+    <div class="bodyIncludeConsumerContainer__selectAndInputsFieldsContainer">
+        <app-design-system-form-select 
+            class="bodyIncludeConsumerContainer__selectConsumer"
+            [placeholder]="'Selecione um consumidor'"
+            [label]="'Consumidores'"
+            [formControl]="formGroup.controls.selectConsumer"
+            [options]="['teste1', 'teste2']"
+            ngDefaultControl
+        ></app-design-system-form-select >
+
+        <app-design-system-form-input 
+            class="bodyIncludeConsumerContainer__cnpjInput"
+            [placeholder]="'CNPJ'"
+            [label]="'CNPJ'"
+            [formControl]="formGroup.controls.cnpjInput" 
+            ngDefaultControl
+        ></app-design-system-form-input>
+
+        <app-design-system-form-input 
+            class="bodyIncludeConsumerContainer__statusInput"
+            [placeholder]="'Status'"
+            [label]="'Status'"
+            [formControl]="formGroup.controls.statusInput" 
+            ngDefaultControl
+        ></app-design-system-form-input>
+
+    </div>
+
+    <app-design-system-textarea [label]="'Observação (opcional)'"></app-design-system-textarea>
+
+    <app-design-system-button
+    class="bodyIncludeConsumerContainer__saveFormBTN"
+    [label]="'Salvar'"
+    [size]="'l'"
+    ngDefaultControl    
+></app-design-system-button>
+  
+</div>
+

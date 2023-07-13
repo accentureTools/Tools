@@ -1,0 +1,16 @@
+@use '../../../../../assets/styles/colors.scss' as colors;
+
+:host {
+    display: block;    
+    margin-bottom: 16px;
+}
+
+.appSubtitleBanner {
+    padding: 1px 20px;
+    background-color: colors.$santanderRed;
+    &__textParagraph {
+        font-weight: bolder;
+        font-size: 18px;
+        color: white;
+    }
+}

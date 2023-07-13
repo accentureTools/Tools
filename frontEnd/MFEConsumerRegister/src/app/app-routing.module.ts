@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./presentation/modules/crud-consumer/crud-consumer.module').then((module) =>  module.CrudConsumerModule)
   },
   {
+    path: 'includeConsumer',
+    loadChildren: () => import('./presentation/modules/include-new-consumer/include-new-consumer.module').then((module) =>  module.IncludeNewConsumerModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'mfeConsumer'

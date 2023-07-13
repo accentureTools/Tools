@@ -1,1 +1,13 @@
-<button class="dsbutton" type="{{type}}">{{label}}</button>
+<button 
+    class="dsbutton" 
+    [ngClass]="
+    {'dsbutton--sm': size === 'sm',
+     'dsbutton--md': size === 'md',
+     'dsbutton--l': size === 'l', 
+     'dsbutton--xl': size === 'xl',
+     'dsbutton--inverse': inverseBTN
+    }" 
+    type="{{type}}"
+>
+{{label}}
+</button>
