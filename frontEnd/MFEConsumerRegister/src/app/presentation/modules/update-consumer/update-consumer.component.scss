@@ -1,0 +1,42 @@
+:host {
+    display: block;
+}
+.headerUpdateConsumerContainer {
+    position: relative;
+    display: flex;
+    &__headerTitle {
+        width: 100%;
+        position: relative;
+    }
+    &__btnReturnToCrudConsumer {
+        position: absolute;
+        width: 150px;
+        display: grid;
+        margin-left: 86.4%;
+        margin-top: 46px;
+    }
+
+}
+
+.bodyUpdateConsumerContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0px 20px;
+    &__selectConsumer {
+        display: grid;
+        width: 25%;
+    }
+    
+    >.bodyUpdateConsumerContainer__selectAndInputsFieldsContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 32px;
+    }
+    &__saveFormBTN {
+        width: 100.5%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+}   

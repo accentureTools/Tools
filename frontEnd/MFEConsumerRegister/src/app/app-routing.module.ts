@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./presentation/modules/include-new-consumer/include-new-consumer.module').then((module) =>  module.IncludeNewConsumerModule)
   },
   {
+    path: environment.routerPaths.updateConsumer,
+    loadChildren: () => import('./presentation/modules/update-consumer/update-consumer.module').then((module) =>  module.UpdateConsumerModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: environment.routerPaths.mfeConsumerMain
